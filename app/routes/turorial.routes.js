@@ -7,7 +7,6 @@ module.exports = app => {
 
   // Create a new Tutorial
   router.post("/", tutorials.create);
-  router.post("/newuser", volunteers.create);
   
 
   // Retrieve all Tutorials
@@ -28,5 +27,15 @@ module.exports = app => {
   // Create a new Tutorial
   router.delete("/", tutorials.deleteAll);
 
+
+
+
+  //create a new Volunteer
+  router.post("/creatvolunteer", volunteers.create);
+  
+
+  
   app.use("/api/tutorials", router);
+  app.use("/api/volunteers", router);
+  
 };
