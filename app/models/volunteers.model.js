@@ -3,9 +3,8 @@ module.exports = mongoose => {
     {
       username:String,
       password:String,
-      description: String,
-      published: Boolean
-
+      selfIntroduction: String,
+      volunteerTime: Number,
     },
     { timestamps: true }
   );
