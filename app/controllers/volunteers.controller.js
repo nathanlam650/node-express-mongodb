@@ -19,7 +19,7 @@ exports.create = (req, res) => {
 
     
   // Save Volunteer in the database
-  volunteer
+  Volunteer
     .save(volunteer)
     .then(data => {
       res.send(data);
@@ -34,9 +34,11 @@ exports.create = (req, res) => {
 
 // Retrieve all Volunteers from the database.
 exports.findAll = (req, res) => {
-  const title = req.query.title;
-  var condition = title ? { title: { $regex: new RegExp(title), $options: "i" } } : {};
+  const username = req.query.username;
+  var condition = username ? { username: { $regex: new RegExp(username), $options: "i" } } : {};
 
+  console.log("test1");
+  
   Volunteer.find(condition)
     .then(data => {
       res.send(data);
