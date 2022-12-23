@@ -10,7 +10,7 @@ module.exports = app => {
   router.get("/", events.findAll);
 
   // Retrieve all published Events
-  router.get("/published", Events.findAllPublished);
+  router.get("/published", events.findAllPublished);
 
   // Retrieve a single Events with id
   router.get("/:id", events.findOne);

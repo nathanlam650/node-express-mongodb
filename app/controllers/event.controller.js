@@ -1,11 +1,12 @@
 const db = require("../models");
-const Event = db.event;
+const Event = db.events;
 //check capital or small letter
 
 // Create and Save a new Event
 exports.create = (req, res) => {
   // Validate request
   if (!req.body.title) {
+    //console.log(req.body)
     res.status(400).send({ message: "Content can not be empty!" });
     return;
   }
@@ -14,6 +15,8 @@ exports.create = (req, res) => {
   const event = new Event({
     title: req.body.title,
     description: req.body.description,
+    time: req.body.time,
+    place: req.body.place,
     published: req.body.published ? req.body.published : false
   });
 
