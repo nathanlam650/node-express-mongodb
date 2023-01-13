@@ -1,5 +1,5 @@
 const db = require("../models");
-const Volunteer = db.volunteers;
+const Volunteers = db.volunteers;
 
 // Create and Save a new Volunteer
 exports.create = (req, res) => {
@@ -8,18 +8,19 @@ exports.create = (req, res) => {
     res.status(400).send({ message: "Content can not be empty!, from volunteer.controller.js" });
     return;
   }
+
     
   // Create a Volunteer
-  const volunteer = new Volunteer({
+  const volunteer = new Volunteers({
     username: req.body.username,
     password: req.body.password,
     selfIntroduction: req.body.selfIntroduction,
     volunteerTime: 0,
+    ETHaccountid:req.body.ETHaccountid,
   });
-
     
   // Save Volunteer in the database
-  Volunteer
+  volunteer
     .save(volunteer)
     .then(data => {
       res.send(data);
@@ -39,7 +40,7 @@ exports.findAll = (req, res) => {
 
   console.log("test1");
   
-  Volunteer.find(condition)
+  volunteer.find(condition)
     .then(data => {
       res.send(data);
     })
@@ -55,7 +56,7 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Volunteer.findById(id)
+  volunteer.findById(id)
     .then(data => {
       if (!data)
         res.status(404).send({ message: "Not found Volunteer with id " + id });
@@ -78,7 +79,7 @@ exports.update = (req, res) => {
 
   const id = req.params.id;
 
-  Volunteer.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+  volunteer.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -97,7 +98,7 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
   const id = req.params.id;
 
-  Volunteer.findByIdAndRemove(id, { useFindAndModify: false })
+  volunteer.findByIdAndRemove(id, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -118,7 +119,7 @@ exports.delete = (req, res) => {
 
 // Delete all Volunteers from the database.
 exports.deleteAll = (req, res) => {
-  Volunteer.deleteMany({})
+  volunteer.deleteMany({})
     .then(data => {
       res.send({
         message: `${data.deletedCount} Volunteer were deleted successfully!`

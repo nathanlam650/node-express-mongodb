@@ -5,6 +5,7 @@ module.exports = mongoose => {
       password:String,
       selfIntroduction: String,
       volunteerTime: Number,
+      ETHaccountid:String,
       
     },
     { timestamps: true }
