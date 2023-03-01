@@ -38,6 +38,7 @@ require("./app/routes/turorial.routes")(app);
 require("./app/routes/volunteer.routes")(app);
 require("./app/routes/event.routes")(app);
 require("./app/routes/organization.routes")(app);
+require("./app/routes/metamaskSDK.routes")(app);
 
 
 // set port, listen for requests

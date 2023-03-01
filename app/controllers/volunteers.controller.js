@@ -38,7 +38,7 @@ exports.findAll = (req, res) => {
   const username = req.query.username;
   var condition = username ? { username: { $regex: new RegExp(username), $options: "i" } } : {};
 
-  console.log("test1");
+  //console.log("test1");
   
   volunteer.find(condition)
     .then(data => {
