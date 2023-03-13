@@ -34,11 +34,10 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to bezkoder application." });
 });
 
-require("./app/routes/turorial.routes")(app);
 require("./app/routes/volunteer.routes")(app);
 require("./app/routes/event.routes")(app);
 require("./app/routes/organization.routes")(app);
-require("./app/routes/metamaskSDK.routes")(app);
+require("./app/routes/nftminted.routes")(app);
 
 
 // set port, listen for requests

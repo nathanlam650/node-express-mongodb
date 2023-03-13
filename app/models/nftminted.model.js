@@ -3,7 +3,12 @@ module.exports = mongoose => {
     {
       title: String,
       description: String,
-      published: Boolean
+      time: String,
+      place: String, 
+      published: Boolean,
+      hash: Int32Array,
+      photourl: String
+
     },
     { timestamps: true }
   );
@@ -14,6 +19,6 @@ module.exports = mongoose => {
     return object;
   });
 
-  const Tutorial = mongoose.model("tutorial", schema);
-  return Tutorial;
+  const Event = mongoose.model("Event", schema);
+  return Event;
 };
