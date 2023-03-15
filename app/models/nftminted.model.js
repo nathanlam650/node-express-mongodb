@@ -3,11 +3,10 @@ module.exports = mongoose => {
     {
       title: String,
       description: String,
-      time: String,
-      place: String, 
       published: Boolean,
-      hash: Int32Array,
-      photourl: String
+      NFTurl: String,
+      photourl: String,
+      owner: String,
 
     },
     { timestamps: true }
@@ -19,6 +18,6 @@ module.exports = mongoose => {
     return object;
   });
 
-  const Event = mongoose.model("Event", schema);
-  return Event;
+  const nftminted = mongoose.model("nftminted", schema);
+  return nftminted;
 };

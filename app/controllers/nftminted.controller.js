@@ -1,5 +1,5 @@
 const db = require("../models");
-const Event = db.events;
+const Event = db.nftminted;
 //check capital or small letter
 
 // Create and Save a new Event
@@ -15,11 +15,10 @@ exports.create = (req, res) => {
   const event = new Event({
     title: req.body.title,
     description: req.body.description,
-    time: req.body.time,
-    place: req.body.place,
     published: req.body.published ? req.body.published : false,
-    hash: req.body.place,
-    photourl: req.body.photourl
+    NFTurl: req.body.NFTurl,
+    photourl: req.body.photourl,
+    owner: req.body.owner
   });
 
   // Save Event in the database

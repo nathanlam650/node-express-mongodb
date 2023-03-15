@@ -24,6 +24,6 @@ module.exports = app => {
   // Create a new Events
   router.delete("/", events.deleteAll);
    
-  app.use("/api/events", router);
+  app.use("/api/MintedNFT", router);
   
 };
