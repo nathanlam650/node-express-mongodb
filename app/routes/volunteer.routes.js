@@ -10,7 +10,7 @@ module.exports = app => {
   router.get("/", volunteers.findAll);
 
   // Retrieve all published Volunteers
-  //router.get("/published", volunteers.findAllPublished);
+  router.get("/published", volunteers.findAllPublished);
 
   // Retrieve a single Volunteers with id
   router.get("/:id", volunteers.findOne);
@@ -25,5 +25,4 @@ module.exports = app => {
   router.delete("/", volunteers.deleteAll);
    
   app.use("/api/volunteers", router);
-  
 };

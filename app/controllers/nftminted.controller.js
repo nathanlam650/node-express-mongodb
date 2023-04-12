@@ -18,7 +18,8 @@ exports.create = (req, res) => {
     published: req.body.published ? req.body.published : false,
     NFTurl: req.body.NFTurl,
     photourl: req.body.photourl,
-    owner: req.body.owner
+    owner: req.body.owner,
+    organization: req.body.organization
   });
 
   // Save Event in the database

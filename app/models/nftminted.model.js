@@ -7,7 +7,7 @@ module.exports = mongoose => {
       NFTurl: String,
       photourl: String,
       owner: String,
-
+      organization: String,
     },
     { timestamps: true }
   );

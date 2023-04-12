@@ -1,5 +1,5 @@
 const db = require("../models");
-const Volunteers = db.volunteers;
+const VolunteerModel = db.volunteers;
 
 // Create and Save a new Volunteer
 exports.create = (req, res) => {
@@ -11,7 +11,7 @@ exports.create = (req, res) => {
 
     
   // Create a Volunteer
-  const volunteer = new Volunteers({
+  const volunteer_new = new VolunteerModel({
     username: req.body.username,
     password: req.body.password,
     selfIntroduction: req.body.selfIntroduction,
@@ -20,8 +20,8 @@ exports.create = (req, res) => {
   });
     
   // Save Volunteer in the database
-  volunteer
-    .save(volunteer)
+  volunteer_new
+    .save(volunteer_new)
     .then(data => {
       res.send(data);
     })
@@ -40,7 +40,7 @@ exports.findAll = (req, res) => {
 
   //console.log("test1");
   
-  volunteer.find(condition)
+  VolunteerModel.find(condition)
     .then(data => {
       res.send(data);
     })
@@ -56,7 +56,7 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  volunteer.findById(id)
+  VolunteerModel.findById(id)
     .then(data => {
       if (!data)
         res.status(404).send({ message: "Not found Volunteer with id " + id });
@@ -79,7 +79,7 @@ exports.update = (req, res) => {
 
   const id = req.params.id;
 
-  volunteer.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+  VolunteerModel.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -98,7 +98,7 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
   const id = req.params.id;
 
-  volunteer.findByIdAndRemove(id, { useFindAndModify: false })
+  VolunteerModel.findByIdAndRemove(id, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -119,7 +119,7 @@ exports.delete = (req, res) => {
 
 // Delete all Volunteers from the database.
 exports.deleteAll = (req, res) => {
-  volunteer.deleteMany({})
+  VolunteerModel.deleteMany({})
     .then(data => {
       res.send({
         message: `${data.deletedCount} Volunteer were deleted successfully!`
@@ -134,8 +134,8 @@ exports.deleteAll = (req, res) => {
 };
 
 // Find all published Volunteer
-/*exports.findAllPublished = (req, res) => {
-  Volunteer.find({ published: true })
+exports.findAllPublished = (req, res) => {
+  VolunteerModel.find({ published: true })
     .then(data => {
       res.send(data);
     })
@@ -146,4 +146,4 @@ exports.deleteAll = (req, res) => {
       });
     });
 };
-*/
+

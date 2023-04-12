@@ -117,7 +117,7 @@ exports.delete = (req, res) => {
 
 // Delete all Organization from the database.
 exports.deleteAll = (req, res) => {
-  EvOrganizationent.deleteMany({})
+  OrganizationModel.deleteMany({})
     .then(data => {
       res.send({
         message: `${data.deletedCount} Organization were deleted successfully!`
